@@ -33,25 +33,6 @@ googleProvider.setCustomParameters({
 
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 // without using .then, our func's result is just returned.
-// .then((result) => {
-//   // This gives you a Google Access Token. You can use it to access the Google API.
-//   const credential = GoogleAuthProvider.credentialFromResult(result);
-//   const token = credential?.accessToken;
-//   // The signed-in user info.
-//   const user = result.user;
-//   // IdP data available using getAdditionalUserInfo(result)
-//   // ...
-// })
-// .catch((error) => {
-//   // Handle Errors here.
-//   const errorCode = error.code;
-//   const errorMessage = error.message;
-//   // The email of the user's account used.
-//   const email = error.customData.email;
-//   // The AuthCredential type that was used.
-//   const credential = GoogleAuthProvider.credentialFromError(error);
-//   // ...
-// });
 
 // to store userAuth data(displayName,uid,email) inside firestore; doc(db, "users", userAuth.uid) if it not exists:
 export const createUserDocFromAuth = async (userAuth: User, additionalInformation = {}) => {
@@ -125,63 +106,3 @@ export const onAuthStateChangedListener = (callback: (user: any) => void) =>
 
 export { auth, googleProvider };
 export default app;
-
-
-
-// id: 'cs_test_a1rVUavQFGvlvM7cW6vGrwJS8iUoxnhsCk5x4bak8FVp1I6dVuCpKItN1o',
-// object: 'checkout.session',
-// after_expiration: null,
-// allow_promotion_codes: null,
-// amount_subtotal: 44000,
-// amount_total: 44000,
-// automatic_tax: { enabled: false, status: null },
-// billing_address_collection: 'auto',
-// cancel_url: 'http://localhost:3000/',
-// client_reference_id: null,
-// consent: null,
-// consent_collection: null,
-// created: 1678699475,
-// currency: 'usd',
-// custom_fields: [],
-// custom_text: { shipping_address: null, submit: null },
-// customer: null,
-// customer_creation: 'if_required',
-// customer_details: null,
-// customer_email: null,
-// expires_at: 1678785875,
-// invoice: null,
-// invoice_creation: {
-//   enabled: false,
-//   invoice_data: {
-//     account_tax_ids: null,
-//     custom_fields: null,
-//     description: null,
-//     footer: null,
-//     metadata: {},
-//     rendering_options: null
-//   }
-// },
-// livemode: false,
-// locale: null,
-// metadata: {},
-// mode: 'payment',
-// payment_intent: null,
-// payment_link: null,
-// payment_method_collection: 'always',
-// payment_method_options: {},
-// payment_method_types: [ 'card' ],
-// payment_status: 'unpaid',
-// phone_number_collection: { enabled: false },
-// recovered_from: null,
-// setup_intent: null,
-// shipping_address_collection: null,
-// shipping_cost: null,
-// shipping_details: null,
-// shipping_options: [],
-// status: 'open',
-// submit_type: 'pay',
-// subscription: null,
-// success_url: 'http://localhost:3000/success?sessionId={CHECKOUT_SESSION_ID}',
-// total_details: { amount_discount: 0, amount_shipping: 0, amount_tax: 0 },
-// url: 'https://checkout.stripe.com/c/pay/cs_test_a1rVUavQFGvlvM7cW6vGrwJS8iUoxnhsCk5x4bak8FVp1I6dVuCpKItN1o#fidkdWxOYHwnPyd1blpxYHZxWjA0SGF2cFZPa2Q1VEA0bTQ1R0RBYlx%2Fckt2ZlZnTlJXSk18XWBQdmlScEs3cmBTblJMUV8xN3F%2FTkFSaW48VX1rYE8wYnB2PFFIUXFDdmZsNVBGQTVDMV9dNTVzZlRMc3d9TicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl'
-// }
